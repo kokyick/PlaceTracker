@@ -14,3 +14,25 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+// ion-loading.transparent {
+//     z-index: 999;
+
+//     width: 90px;
+//     height: 90px;
+//     padding: 0;
+//     display: absolute;
+//     margin: auto;
+//     .loading-wrapper {
+//         padding: 5px;
+//         box-shadow: 0;
+//     }
+//   }
+.toolbar-background {
+    background-color: #EF5350;
+  }
+  .toolbar-title{
+      color: #fff!important;
+  }
+  .toolbar-title-md{
+    color: #fff!important;
+  }

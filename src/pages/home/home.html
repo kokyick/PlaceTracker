@@ -1,14 +1,39 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar style="text-align:center; color:#fff;">
     <ion-title>
-      Ionic Blank
+      <img style="width:42px; height:42px;" src="assets/imgs/icon.png"/>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <!-- <ion-item>
+        <ion-label><ion-icon name="pin" color="#D32F2F"></ion-icon> Nearby places</ion-label>
+        <ion-select (ionChange)="queryP()" [(ngModel)]="places">
+          <div *ngFor="let name of namesList">
+            <ion-option [value]="name">{{name.name}}</ion-option>
+          </div>
+        </ion-select>
+  </ion-item> -->
+  <img style="width:100%; height:auto; "src="{{placeimg}}"/>
+
+  <div style="padding: 10px; width:100%; background:#EEE;">
+    <h2>
+      <ion-icon style="border-radius:50%; color:#EF5350;" name="image"></ion-icon>  {{placename}}
+    </h2>
+    <p>{{placelocation}}</p>
+  </div>
+  <p>{{placedes}}</p>
+  <p><i>Translated to {{deviceLang}}</i></p>
+
+  <!-- <ion-list>
+    <ion-item *ngFor="let post of postList">
+    {{post.name}}
+    </ion-item>
+  </ion-list> -->
+
+  <ion-fab (click)="takePhoto()" bottom right >
+    <button ion-fab style="background-color:#EF5350;"><ion-icon name="camera"></ion-icon></button>
+  </ion-fab>
+  <!-- <button ion-fab color="primary"><ion-icon name="camera" style="color:#fff;"></ion-icon></button> -->
 </ion-content>
