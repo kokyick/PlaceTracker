@@ -22,6 +22,7 @@ export class HomePage {
   loading:any;
   places:any;
   namesList:any[];
+  contentURL:any;
   apiUrl = 'https://jsonplaceholder.typicode.com';
   transUrl = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyDpR0rhSKe_CiRrzzAFyC0KWIcfUfuV4WE";
 
@@ -40,6 +41,7 @@ export class HomePage {
     // self.getWikiPlace();
   }
   ionViewWillEnter(){
+    this.translateText();
     this.presentLoadingCustom();
     this.loading.present(); 
   }
@@ -62,6 +64,19 @@ export class HomePage {
   //     });
   //   });
   // }
+  textToSpeech(){
+    // https://translate.google.com.vn/translate_tts?ie=UTF-8&q=%E4%BD%A0%E5%A5%BD&tl=zh-CN&client=tw-ob
+    var self=this;
+    // 
+    
+    return new Promise(resolve => {  
+        self.http.get("https://translate.google.com.vn/translate_tts?ie=UTF-8&q=Hello&tl=" + self.deviceLang + "&client=tw-ob").subscribe(data => {
+          self.showAlert("saf");
+          self.namesList=(<any>data).results;
+          self.showAlert((<any>data).results[0].name);
+      });
+    });
+  }
   queryP(){
     var self=this;
         
@@ -144,6 +159,7 @@ export class HomePage {
           self.placename=(<any>data).displaytitle;
           self.placelocation=(<any>data).description;
           self.placedes=(<any>data).extract;
+          self.contentURL=(<any>data).content_urls.mobile.page;
 
           setTimeout(() => {
             self.loading.dismiss();
